@@ -28,6 +28,7 @@ class Complex{
     Complex(){
         i = 0;
         r= 0;
+        cout << "Complex class created\n";
     }
     Complex(int real, int imag){
         i = imag;
@@ -62,7 +63,7 @@ class Complex{
         return newerComplex;
     }
 
-    Complex operator +(Complex newComplex){
+    Complex operator * (Complex newComplex){
         Complex newerComplex;
         newerComplex.i = i * newComplex.i;
         newerComplex.r = r*newComplex.r;
@@ -82,6 +83,10 @@ class Complex{
         i = imag;
         r = real;
     }
+
+    ostream& operator << (ostream& output, const Complex){
+        output << "Real #: " << r << "\tImaginary #: " << i << endl;
+    }
 };
 
 
@@ -93,11 +98,24 @@ int main() {
     cout << "FILE: " << __FILE__ << " DATE: " << __DATE__ << endl;
     cout << "------------------------------------------------------------------------------\n";
     
-    /*
+    
     Complex X_Array[5], Y_Array[5], Z_Array[5];	   //create  complex arrays of 5 complex elements - stack
-	 X_Array: (1,1),(2,2),(3,3)(4,4), (5,5)
-	 Y_Array: (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5)
-	  Z_Array[i]  = X_Array[i] + Y_Array[i];  0 <= i <=5
+    
+	//X_Array = (1,1), (2,2), (3,3), (4,4), (5,5);
+    for (int i = 1; i< 6; i++){
+        X_Array[i-1].setValue(i,i);
+    }
+
+    //Y_Array = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
+    for (int i = 1; i< 6; i++){
+        Y_Array[i-1].setValue(-i,-i);
+    }
+
+    //	Z_Array[i]  = X_Array[i] + Y_Array[i];  0 <= i <=5
+    for (int i = 0; i< 5; i++){
+        Z_Array[i] = (X_Array[i]+Y_Array[i]);
+    }
+    /*
 	Print Z_Array[i]
 	Z_Array[i]  = X_Array[i] * Y_Array[i];  0 <= i <=5
 	Z_Array[i]
