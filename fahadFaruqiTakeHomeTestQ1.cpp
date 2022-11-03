@@ -84,9 +84,9 @@ class Complex{
         r = real;
     }
 
-    ostream& operator << (ostream& output, const Complex){
+    /*ostream& operator << (ostream& output, const Complex){
         output << "Real #: " << r << "\tImaginary #: " << i << endl;
-    }
+    }*/
 };
 
 
