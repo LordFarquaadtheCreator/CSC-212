@@ -42,7 +42,6 @@ int main (){ // this was much harder than i thought it would be
 // this is like my linked list in part 1 but reversed
     node *head =NULL;
     node *temp;
-    int martin;
     
     for (int i =0; i < 9; i++){        
         head = new node;
