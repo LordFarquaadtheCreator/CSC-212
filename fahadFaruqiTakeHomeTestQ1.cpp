@@ -116,7 +116,7 @@ int main() {
         X_Array[i-1].setValue(i,i);
     }
 
-    //Y_Array = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
+    //Y_Array[] = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
     for (int i = 1; i< 6; i++){
         Y_Array[i-1].setValue(-i,-i);
                 cout << X_Array[i-1];
