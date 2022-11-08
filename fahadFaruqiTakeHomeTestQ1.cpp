@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// holyyyyy fuck this might take time
 /*
 	•	Write a program that creates an Integer Complex class which contains a pair of integers, the first R 
         (represents the real part) and the second I (represents the imaginary part).  The class should contain the 
@@ -9,7 +8,7 @@ using namespace std;
 
 	•	Default constructor (sets R=0, I=0) – print message DONE
 	•	Parametrized constructor (int Real, int Imag) – print message DONE
-	•	Copy constructor( )-print message   ???? what does this mean
+	•	Copy constructor( )-print message   DONE
 	•	Destructor( ) – print message DONE
 	•	Overloaded assignment operator=(const Complex &rhs )  – print message DONE?
 	•	Overloaded summation operator+( const Complex &rhs ) – print message DONE
@@ -56,7 +55,6 @@ class Complex{
 
     Complex operator +(Complex newComplex){
         Complex newerComplex;
-
         newerComplex.i = i + newComplex.i;
         newerComplex.r = r + newComplex.r;
         
@@ -112,8 +110,9 @@ int main() {
     Complex X_Array[5], Y_Array[5], Z_Array[5];	   //create  complex arrays of 5 complex elements - stack
     
 	// X_Array[] = {1,1}, {2,2}, {3,3}, {4,4}, {5,5};
-    for (int i = 1; i< 6; i++){
+    for (int i = 1; i< 6; i++){ //declaring X values WORKS
         X_Array[i-1].setValue(i,i);
+        cout << X_Array[i-1];
     }
 
     //Y_Array[] = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
@@ -121,6 +120,10 @@ int main() {
         Y_Array[i-1].setValue(-i,-i);
                 cout << X_Array[i-1];
 
+    //Y_Array = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
+    for (int i = -1; i > -6; i--){// declaring Y values WORKS
+        Y_Array[i+1].setValue(i,i);
+        cout << Y_Array[i+1];
     }
 
     //	Z_Array[i]  = X_Array[i] + Y_Array[i];  0 <= i <=5
@@ -155,6 +158,9 @@ int main() {
         cout << Z_Array[i];
     }
     cout << endl;
+
+
+    cout << (X_Array[1]+Y_Array[2]);
     /*
 	Print Z_Array[i]
 	Z_Array[i]  = X_Array[i] * Y_Array[i];  0 <= i <=5
