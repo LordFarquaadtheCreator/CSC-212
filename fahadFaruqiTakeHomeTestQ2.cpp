@@ -19,41 +19,40 @@ Write   program that creates a class Shape that contains the following private m
 	•	The constructors/destructor/copy constructor and assignment operators should provide messages DONE
 */
 
-enum Color {R,O,Y,G,B,I,V}; // no values
+enum Color {R,O,Y,G,B,I,V};
 
 class Shape {
     int x, y;
     Color X;
     static int Cnt; // how many shapes exist
-    static int id; //  contains (int) id of shape
+    int id; //  contains (int) id of shape
 
     public:
     Shape(){
         cout << "Shape constructed\n";
-		Cnt = 0;
-		id = Cnt;
+		x = 0;
+		y = 0;
 		Cnt ++;
+		id = Cnt;
     }
-	Shape (int x, int y){
+	Shape (int x, int y, Color X){
 		cout << "Parameterized shape constructed\n";
 		this->x = x;
 		this->y= y;
+		this->X=X;
 
-		Cnt = 0;
-		id = Cnt;
 		Cnt ++;
+		id = Cnt;
 	}
 	~Shape(){
 		cout << "Shape destructed\n";
-	}
-    
+	} 
 	Shape (const Shape &shapeCopy){ // copy constructor
 		x= shapeCopy.x;
 		y=shapeCopy.y;
 
 		cout << "Shape copied\n";
 	}
-
 	Shape operator = (Shape red){ // don't know if this causes memory leaks or not ...
 		red.x = x;
 		red.y = y;
@@ -66,8 +65,7 @@ class Shape {
 	}
 
 	void print(){
-		printf("(%i,%i)\n", x, y); //x and y coordiantes
-		cout << "Id: " << id;
+		printf("(%i,%i)\nId: %i\n", x, y, id); //x and y coordiantes
 	}
 };
 
@@ -79,8 +77,9 @@ class Circle : Shape {
 		radius =0;
 		cout << "Circle Constructor Created\n";
 	}
-	Circle(int radius){
+	Circle(int radius, Color X){
 		this->radius = radius;
+		this->X=X;
 		cout << "Circle Parametrized Constructor Created\n";
 	}
 	Circle (const Circle &Circlecopy){
@@ -139,8 +138,24 @@ class Rectangle : Shape {
 	}
 };
 
+int Shape::Cnt = 0;                 //static variable initialisation
+
 int main() {
-	Shape square(5,5);
-	square.print();
+	Shape X, Amoeba(3,4, Y); //works
+	Circle C1(3,4,B,5);
     return 0;
 }
+
+/*
+Demonstrate the following:
+	•	Shape X, Amoeba(3,4, ‘Y’) 
+	•	Circle C1(3,4,’B’,5) – blue circle located at (5,6) of radius=5
+	•	Circle C2(15, 20, ’Y’,10) – yellow circle located at (15,20) of radius=10
+	•	Rectangle R(12, 5, ‘V’, 8,4) – Violet rectangle located at (12,5) of dimension (8,4)
+	•	Calculate the Area of each derived object; float CalcArea( )
+	•	For all created objects use the appropriate Print functions
+	•	Calculate and print the distance between C1 and C2 – use the respective (x,y) locations 
+	•	Calculate the distance from origin for C1, C2 and R
+	•	Print the total number of created shapes
+
+*/

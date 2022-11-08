@@ -1,10 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    for (int i = 0; i < 5; i++){
-        static int pi = 5;
-        pi ++;
-        cout << pi << endl;
+class Shape {
+    int x, y;
+    static int Cnt; // how many shapes exist
+    int id; //  contains
+
+    public:
+    Shape (int x, int y){
+        cout << "whaaaa";
+        Cnt ++;
+        cout << Cnt;
     }
+};
+
+
+int main(){
+
+    Shape cow (5,5);
+    return 0;
 }
