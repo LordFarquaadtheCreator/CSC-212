@@ -27,38 +27,47 @@ class Complex{
     public:
     Complex(){
         i = 0;
-        r= 0;
+        r = 0;
         cout << "Complex class created\n";
     }
     Complex(int real, int imag){
         i = imag;
         r = real;
         printf("Real = %i, Imag = %i\n", r, i);
+        cout << "Parametrized Complex class created\n";
     }
     ~Complex(){
         cout << "Complex class destructed\n";
     }
-    Complex(const Complex& other){ // copy constructor
-        i = other.i;
-        r = other.r;
-    }
+    Complex (const Complex &complexCopy){ // copy constructor
+		i = complexCopy.i;
+		r = complexCopy.r;
+
+		cout << "Complex class copied\n";
+	}
 
     Complex operator = (Complex newComplex){ // not to sure about this one
-        return newComplex; // this will cause memory leaks
+        Complex newerComplex;
+        newerComplex.i = newComplex.i;
+        newerComplex.r = newComplex.r;
+
+        return newerComplex;
     }
 
     Complex operator +(Complex newComplex){
         Complex newerComplex;
+
         newerComplex.i = i + newComplex.i;
-        newerComplex.r = r+newComplex.r;
+        newerComplex.r = r + newComplex.r;
         
         return newerComplex;
     }
 
     Complex operator -(Complex newComplex){
         Complex newerComplex;
+
         newerComplex.i = i - newComplex.i;
-        newerComplex.r = r-newComplex.r;
+        newerComplex.r = r - newComplex.r;
         
         return newerComplex;
     }
@@ -71,7 +80,7 @@ class Complex{
         return newerComplex;
     }
 
-    Complex operator +(int real){
+    Complex operator *(int real){
         Complex newerComplex;
         newerComplex.i = i * real;
         newerComplex.r = r * real;
@@ -84,12 +93,13 @@ class Complex{
         r = real;
     }
 
-    /*ostream& operator << (ostream& output, const Complex){
-        output << "Real #: " << r << "\tImaginary #: " << i << endl;
-    }*/
+    friend ostream& operator << (ostream& os, const Complex& x);
 };
 
-
+ostream& operator << (ostream& os, const Complex &x){
+        os << "Real #: " << x.r << "\tImaginary #: " << x.i << endl;
+        return os;
+    }
 
 int main() {
     string name = "Fahad Faruqi";
@@ -101,7 +111,7 @@ int main() {
     
     Complex X_Array[5], Y_Array[5], Z_Array[5];	   //create  complex arrays of 5 complex elements - stack
     
-	//X_Array = (1,1), (2,2), (3,3), (4,4), (5,5);
+	// X_Array[] = {1,1}, {2,2}, {3,3}, {4,4}, {5,5};
     for (int i = 1; i< 6; i++){
         X_Array[i-1].setValue(i,i);
     }
@@ -109,12 +119,42 @@ int main() {
     //Y_Array = (-1,-1),(-2,-2),(-3,-3)(-4,-4), (-5-,5);
     for (int i = 1; i< 6; i++){
         Y_Array[i-1].setValue(-i,-i);
+                cout << X_Array[i-1];
+
     }
 
     //	Z_Array[i]  = X_Array[i] + Y_Array[i];  0 <= i <=5
     for (int i = 0; i< 5; i++){
         Z_Array[i] = (X_Array[i]+Y_Array[i]);
     }
+    
+    cout << "\n**Z_ARRAY VALUES (X+Y)**\n";
+    for (int i = 0; i < 5; i++){
+        cout << Z_Array[i];
+    }
+    cout << endl;
+
+
+    for (int i = 0; i< 5; i++){
+        Z_Array[i] = (X_Array[i]*Y_Array[i]);
+    }
+    
+    cout << "\n**Z_ARRAY VALUES (X*Y)**\n";
+    for (int i = 0; i < 5; i++){
+        cout << Z_Array[i];
+    }
+    cout << endl;
+
+
+    for (int i = 0; i< 5; i++){
+        Z_Array[i] = (X_Array[i]*10);
+    }
+    
+    cout << "\n**Z_ARRAY VALUES (X*10)**\n";
+    for (int i = 0; i < 5; i++){
+        cout << Z_Array[i];
+    }
+    cout << endl;
     /*
 	Print Z_Array[i]
 	Z_Array[i]  = X_Array[i] * Y_Array[i];  0 <= i <=5

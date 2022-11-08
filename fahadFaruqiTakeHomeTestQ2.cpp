@@ -157,19 +157,26 @@ int main() {
 	Circle C2(15, 20, Y,10);
 	Rectangle R(12, 5, V, 8,4);
 
-	printf("\n**Areas**\nX: N/A\nAmoeba: N/A\nC1: %.2f\nC2: %.2f\nR: %.2f\n\n", C1.CalcArea(), C2.CalcArea(), R.CalcArea());
+	printf("\n**AREA**\nX: N/A\nAmoeba: N/A\nC1: %.2f\nC2: %.2f\nR: %.2f\n\n", C1.CalcArea(), C2.CalcArea(), R.CalcArea());
+	
+	cout << "**INFO**\n";
 	X.print();
 	Amoeba.print();
 	C1.print();
 	C2.print();
 	R.print();
+	cout << endl;
 
+	cout << "**DISTANCES**\n";
 	distance(C1, C2);
 	printf("Distance from Origin for C1: %.2f\n",  C1.distanceFromOrigin());
 	printf("Distance from Origin for C2: %.2f\n", C2.distanceFromOrigin());
 	printf("Distance from Origin for R: %.2f\n", R.distanceFromOrigin());
-
+	cout << endl;
+	
+	cout << "**TOTAL SHAPES**" << endl;
 	printTotalShapes(R);
+	cout << endl;
 
     return 0;
 }
