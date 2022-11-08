@@ -8,7 +8,7 @@ Write   program that creates a class Shape that contains the following private m
 	•	Color X (R,O,Y,G,B,I,V) – Color is an enumerator data type DONE
 	•	static int Cnt – total count of how many shapes exist DONE
 	•	int Id (set to Cnt) DONE
-             and the usual member functions:
+			and the usual member functions:
 	•	Default Constructor DONE
 	•	Parametrized Constructor DDONE
 	•	Destructor DONE
@@ -47,7 +47,7 @@ class Shape {
 		cout << "Shape destructed\n";
 	}
     
-	Shape (const Shape &shapeCopy){
+	Shape (const Shape &shapeCopy){ // copy constructor
 		x= shapeCopy.x;
 		y=shapeCopy.y;
 
@@ -61,13 +61,81 @@ class Shape {
 		return red;
 	}
 
-    void distanceFromOrigin (){ // 100% right, no need to check
-		printf("Shape is %.3f units from Origin\n", (sqrt(pow(x,2)+pow(x,2)))); //pythagorean theorm
+    float distanceFromOrigin (){ // 100% right, no need to check
+		return (sqrt(pow(x,2)+pow(x,2))); //pythagorean theorm
 	}
 
 	void print(){
 		printf("(%i,%i)\n", x, y); //x and y coordiantes
 		cout << "Id: " << id;
+	}
+};
+
+class Circle : Shape {
+	int radius;
+
+	public:
+	Circle(){
+		radius =0;
+		cout << "Circle Constructor Created\n";
+	}
+	Circle(int radius){
+		this->radius = radius;
+		cout << "Circle Parametrized Constructor Created\n";
+	}
+	Circle (const Circle &Circlecopy){
+		radius= Circlecopy.radius;
+		cout << "Circle copied\n";
+	}
+
+	Circle operator = (Circle red){
+		red.radius = radius;
+
+		return red;
+	}
+
+	float CalcArea(){ //simple geometry
+		return (pow(radius,2)*3.14);
+	}
+
+	void print(){
+		printf("Radius: %i, Area: %.2f", radius, CalcArea());
+	}
+};
+
+class Rectangle : Shape {
+	int Len, Width;
+
+	public:
+	Rectangle(){
+		Len =0;
+		Width = 0;
+		cout << "Rectangle Constructor Created\n";
+	}
+	Rectangle(int Len, int Width){
+		this->Len = Len;
+		this->Width= Width;
+		cout << "Rectangle Parametrized Constructor Created\n";
+	}
+	Rectangle (const Rectangle &rectangleCopy){
+		Len= rectangleCopy.Len;
+		Width=rectangleCopy.Width;
+		cout << "Rectangle copied\n";
+	}
+
+	Rectangle operator = (Rectangle red){
+		red.Width = Width;
+		red.Len = Len;
+
+		return red;
+	}
+
+	float CalcArea(){ //simple geometry
+		return Len*Width;
+	}
+
+	void print(){
+		printf("Lenght: %i, Width: %i, Area: %.2f", Len, Width, CalcArea());
 	}
 };
 
