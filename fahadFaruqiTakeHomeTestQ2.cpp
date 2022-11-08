@@ -152,6 +152,12 @@ void printTotalShapes(Shape x){
 int Shape::Cnt = 0;                 //static variable initialisation
 // ID starts from 0
 int main() {
+	string name = "Fahad Faruqi";
+    cout << "------------------------------------------------------------------------------\n"; 
+    cout << "Name: " << name << endl;
+    cout << "FILE: " << __FILE__ << " DATE: " << __DATE__ << endl;
+    cout << "------------------------------------------------------------------------------\n";
+
 	Shape X, Amoeba(3,4, Y); //works
 	Circle C1(3,4,B,5); // works
 	Circle C2(15, 20, Y,10);

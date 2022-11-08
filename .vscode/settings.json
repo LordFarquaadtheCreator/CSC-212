@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "__locale": "cpp",
         "locale": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cstdlib": "cpp"
     }
 }
