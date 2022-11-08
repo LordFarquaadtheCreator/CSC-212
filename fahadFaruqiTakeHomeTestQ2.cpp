@@ -1,25 +1,9 @@
 #include <iostream>
-#include <cmath>
+#include <cmath> //needed to make life easier
 using namespace std;
 
-/*
-Write   program that creates a class Shape that contains the following private member data:
-	•	int x,y DONE
-	•	Color X (R,O,Y,G,B,I,V) – Color is an enumerator data type DONE
-	•	static int Cnt – total count of how many shapes exist DONE
-	•	int Id (set to Cnt) DONE
-			and the usual member functions:
-	•	Default Constructor DONE
-	•	Parametrized Constructor DDONE
-	•	Destructor DONE
-	•	Copy Constructor DONE
-	•	Overloaded assignment operator=( ) DONE
-	•	Calculate distance( ) from origin (sqrt(x*x+y*y) ) DONE
-	•	Print( ) – prints the (x,y) coordinates, Color and Id of a specific Shape DONE
-	•	The constructors/destructor/copy constructor and assignment operators should provide messages DONE
-*/
 
-enum Color {R,O,Y,G,B,I,V};
+enum Color {R,O,Y,G,B,I,V}; // global declaration
 
 class Shape {
     int x, y;
@@ -32,8 +16,9 @@ class Shape {
         cout << "Shape constructed\n";
 		x = 0;
 		y = 0;
-		Cnt ++;
+
 		id = Cnt;
+		Cnt ++;
     }
 	Shape (int x, int y, Color X){
 		cout << "Parameterized shape constructed\n";
@@ -41,8 +26,8 @@ class Shape {
 		this->y= y;
 		this->X=X;
 
-		Cnt ++;
 		id = Cnt;
+		Cnt ++;
 	}
 	~Shape(){
 		cout << "Shape destructed\n";
@@ -67,9 +52,14 @@ class Shape {
 	void print(){
 		printf("(%i,%i)\nId: %i\n", x, y, id); //x and y coordiantes
 	}
+
+	friend class Circle;
+	friend class Rectangle;
+	friend void distance(Shape x, Shape y);
+	friend void printTotalShapes(Shape x);
 };
 
-class Circle : Shape {
+class Circle : public Shape {
 	int radius;
 
 	public:
@@ -77,11 +67,16 @@ class Circle : Shape {
 		radius =0;
 		cout << "Circle Constructor Created\n";
 	}
-	Circle(int radius, Color X){
-		this->radius = radius;
+	Circle(int x, int y, Color X, int radius){
+		this->x = x;
+		this->y= y;
 		this->X=X;
+		this->radius = radius;
 		cout << "Circle Parametrized Constructor Created\n";
 	}
+	~Circle(){
+		cout << "Circle destructed\n";
+	} 
 	Circle (const Circle &Circlecopy){
 		radius= Circlecopy.radius;
 		cout << "Circle copied\n";
@@ -94,15 +89,16 @@ class Circle : Shape {
 	}
 
 	float CalcArea(){ //simple geometry
-		return (pow(radius,2)*3.14);
+		return (pow(radius,2)*3.141594);
 	}
 
 	void print(){
-		printf("Radius: %i, Area: %.2f", radius, CalcArea());
+		printf("(%i,%i)\nId: %i\n", x, y, id); //x and y coordiantes
+		printf("Radius: %i, Area: %.2f\n", radius, CalcArea());
 	}
 };
 
-class Rectangle : Shape {
+class Rectangle : public Shape {
 	int Len, Width;
 
 	public:
@@ -111,11 +107,17 @@ class Rectangle : Shape {
 		Width = 0;
 		cout << "Rectangle Constructor Created\n";
 	}
-	Rectangle(int Len, int Width){
+	Rectangle(int x, int y, Color X, int Len, int Width){
+		this->x = x;
+		this->y= y;
+		this->X=X;
 		this->Len = Len;
 		this->Width= Width;
 		cout << "Rectangle Parametrized Constructor Created\n";
 	}
+	~Rectangle(){
+		cout << "Rectangle destructed\n";
+	} 
 	Rectangle (const Rectangle &rectangleCopy){
 		Len= rectangleCopy.Len;
 		Width=rectangleCopy.Width;
@@ -134,28 +136,40 @@ class Rectangle : Shape {
 	}
 
 	void print(){
-		printf("Lenght: %i, Width: %i, Area: %.2f", Len, Width, CalcArea());
+		printf("(%i,%i)\nId: %i\n", x, y, id); //x and y coordiantes
+		printf("Lenght: %i, Width: %i, Area: %.2f\n", Len, Width, CalcArea());
 	}
 };
 
-int Shape::Cnt = 0;                 //static variable initialisation
-
-int main() {
-	Shape X, Amoeba(3,4, Y); //works
-	Circle C1(3,4,B,5);
-    return 0;
+void distance(Shape x, Shape y){
+	printf("The distance between the two shapes is: %.2f\n", sqrt(pow(y.x-x.x, 2)+pow(y.y-x.y,2))); // distance formula 
 }
 
-/*
-Demonstrate the following:
-	•	Shape X, Amoeba(3,4, ‘Y’) 
-	•	Circle C1(3,4,’B’,5) – blue circle located at (5,6) of radius=5
-	•	Circle C2(15, 20, ’Y’,10) – yellow circle located at (15,20) of radius=10
-	•	Rectangle R(12, 5, ‘V’, 8,4) – Violet rectangle located at (12,5) of dimension (8,4)
-	•	Calculate the Area of each derived object; float CalcArea( )
-	•	For all created objects use the appropriate Print functions
-	•	Calculate and print the distance between C1 and C2 – use the respective (x,y) locations 
-	•	Calculate the distance from origin for C1, C2 and R
-	•	Print the total number of created shapes
+void printTotalShapes(Shape x){
+	printf("The total number of shapes are: %i\n", x.Cnt);
+}
 
-*/
+int Shape::Cnt = 0;                 //static variable initialisation
+// ID starts from 0
+int main() {
+	Shape X, Amoeba(3,4, Y); //works
+	Circle C1(3,4,B,5); // works
+	Circle C2(15, 20, Y,10);
+	Rectangle R(12, 5, V, 8,4);
+
+	printf("\n**Areas**\nX: N/A\nAmoeba: N/A\nC1: %.2f\nC2: %.2f\nR: %.2f\n\n", C1.CalcArea(), C2.CalcArea(), R.CalcArea());
+	X.print();
+	Amoeba.print();
+	C1.print();
+	C2.print();
+	R.print();
+
+	distance(C1, C2);
+	printf("Distance from Origin for C1: %.2f\n",  C1.distanceFromOrigin());
+	printf("Distance from Origin for C2: %.2f\n", C2.distanceFromOrigin());
+	printf("Distance from Origin for R: %.2f\n", R.distanceFromOrigin());
+
+	printTotalShapes(R);
+
+    return 0;
+}
