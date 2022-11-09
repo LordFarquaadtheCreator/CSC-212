@@ -1,24 +1,6 @@
 #include <iostream>
 using namespace std;
 
-/*
-	•	Write a program that creates an Integer Complex class which contains a pair of integers, the first R 
-        (represents the real part) and the second I (represents the imaginary part).  The class should contain the 
-        following member and friend functions:
-
-	•	Default constructor (sets R=0, I=0) – print message DONE
-	•	Parametrized constructor (int Real, int Imag) – print message DONE
-	•	Copy constructor( )-print message   DONE
-	•	Destructor( ) – print message DONE
-	•	Overloaded assignment operator=(const Complex &rhs )  – print message DONE?
-	•	Overloaded summation operator+( const Complex &rhs ) – print message DONE
-	•	Overloaded difference operator-( const Complex &rhs ) – print message DONE
-	•	Overloaded product operator*( const Complex &rhs) – complex product that entails calculating cross multiply terms DONE
-	•	Overloaded product operator*( int Real) – scaling a complex number by a Real DONE
-	•	friend function output ostream & os operator<<( ostream & os, const Complex &rhs ) – outputs complex number ????
-	•	void setValue(int real, int imag) – sets R and I to argument values DONE
-	•	This class should contain two private(protected) integer member variables (R,I) that represent a complex number DONE
-*/
 
 class Complex{
     int i, r;
