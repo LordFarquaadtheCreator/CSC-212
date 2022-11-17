@@ -21,9 +21,10 @@ void push(string model){ // pushes the data onto a new node that's added to the 
 
 void print(){
     node * temp = head; // by now all nodes should be declared and added, so this points to the top of it
-
+    cout << "****CAR MODELS****\n";
+    
     while (temp != NULL){
-        cout << temp->model << endl;
+        cout << "Car Model:" << temp->model << endl;
         temp = temp->next;
     }
 } 
@@ -35,7 +36,7 @@ int main (){
     cout << "==================================================================================\n" << endl;
 
     string model;
-    for(int i = 0; i <9; i++){
+    for(int i = 0; i <9; i++){ //only 9 car models allowed
         cout << "Car Model: ";
         cin >> model;
         push(model);
