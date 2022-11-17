@@ -8,10 +8,22 @@ using namespace std;
 struct node{
     string model;
     node *next;
-};
+} *top = NULL;
 
-void print(node * head){
-    node * temp = head;
+void push(string model){
+    node* newNode = new node;
+    if(newNode == NULL){
+        cout << "Stack Overflow\n";
+    }
+
+    newNode->model = model;
+    newNode->next = top;
+
+    top = newNode;
+}
+
+void print(){
+    node * temp = top;
 
     while (temp != NULL){
         cout << temp->model << endl;
@@ -21,22 +33,13 @@ void print(node * head){
 
 int main (){ // this was much harder than i thought it would be
 // this is like my linked list in part 1 but reversed
-    node *head =NULL;
-    node *temp;
-    
-    for (int i =0; i < 9; i++){        
-        head = new node;
-        head->next = temp;
-        temp = head;
-
-        printf("Car %i Model: ", i+1);
-        cin >> head->model;
+    string model;
+    node *head; 
+    for(int i = 0; i <9; i++){
+        cout << "Car Model: ";
+        cin >> model;
+        push(model);
     }
 
-    // our "print" function
-    //print(head);
-
-    //removeNode(head); // removes "last" node
-
-    print(head);
+    print();
 }
