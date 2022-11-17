@@ -28,8 +28,12 @@ void print(){
     }
 } 
 
-int main (){ // this was much harder than i thought it would be
-// this is like my linked list in part 1 but reversed
+int main (){ 
+    string name = "Fahad Faruqi";
+    cout << endl << "==================================================================================\n";
+    cout << " " << name << "\t File: " << __FILE__ << "\t Date: " << __DATE__<< "\tCSC 21200 LM24126" << endl;
+    cout << "==================================================================================\n" << endl;
+
     string model;
     node *head; 
     for(int i = 0; i <9; i++){

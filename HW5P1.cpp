@@ -151,7 +151,12 @@ void removeLessThan25(node *head, float average){ // same sorting logic as print
 
 
 int main(){
-node* temp = NULL;
+    string name = "Fahad Faruqi";
+    cout << endl << "==================================================================================\n";
+    cout << " " << name << "\t File: " << __FILE__ << "\t Date: " << __DATE__<< "\tCSC 21200 LM24126" << endl;
+    cout << "==================================================================================\n" << endl;
+
+    node* temp = NULL;
     node *head = new node;
     temp = head;
 
