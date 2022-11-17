@@ -19,25 +19,6 @@ void print(node * head){
     }
 } 
 
-
-void removeNode(node* head){
-    node * temp = head;
-    node * secTemp = NULL;
-    cout << "entry";
-
-    while (temp != NULL){
-        cout << "while entry";
-        if(temp->next == NULL){
-            secTemp->next = NULL;
-        }
-        cout << "if exit";
-        secTemp = temp;
-        temp = temp->next;
-    } // now temp is at the last node
-
-    print(head);
-}
-
 int main (){ // this was much harder than i thought it would be
 // this is like my linked list in part 1 but reversed
     node *head =NULL;

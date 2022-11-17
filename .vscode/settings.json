@@ -5,6 +5,18 @@
         "__locale": "cpp",
         "locale": "cpp",
         "iosfwd": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "__config": "cpp",
+        "__debug": "cpp",
+        "__string": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "string": "cpp",
+        "stdexcept": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp",
+        "version": "cpp",
+        "algorithm": "cpp"
     }
 }
