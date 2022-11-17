@@ -12,9 +12,6 @@ struct node{
 
 void push(string model){
     node* newNode = new node;
-    if(newNode == NULL){
-        cout << "Stack Overflow\n";
-    }
 
     newNode->model = model;
     newNode->next = top;
