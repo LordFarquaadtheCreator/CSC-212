@@ -8,19 +8,19 @@ using namespace std;
 struct node{
     string model;
     node *next;
-} *top = NULL;
+} *head = NULL;
 
-void push(string model){
+void push(string model){ // pushes the data onto a new node that's added to the front
     node* newNode = new node;
 
     newNode->model = model;
-    newNode->next = top;
+    newNode->next = head; //the first node points to nothing
 
-    top = newNode;
+    head = newNode; // all subsequent nodes point "downward" to the first
 }
 
 void print(){
-    node * temp = top;
+    node * temp = head; // by now all nodes should be declared and added, so this points to the top of it
 
     while (temp != NULL){
         cout << temp->model << endl;
@@ -35,7 +35,6 @@ int main (){
     cout << "==================================================================================\n" << endl;
 
     string model;
-    node *head; 
     for(int i = 0; i <9; i++){
         cout << "Car Model: ";
         cin >> model;

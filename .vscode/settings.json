@@ -17,6 +17,7 @@
         "system_error": "cpp",
         "typeinfo": "cpp",
         "version": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "type_traits": "cpp"
     }
 }
