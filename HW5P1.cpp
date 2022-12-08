@@ -77,7 +77,7 @@ void histogram(node *head){
     // second- take the  buckets and print a histogram
     for (int i =0; i < 27; i++){
 
-        printf("%i: ", 7500+(i*500));
+        printf("$%i: ", 7500+(i*500));
         
         for (int j =0; j< buckets[i]; j++){
             cout << " x ";
