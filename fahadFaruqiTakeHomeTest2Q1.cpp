@@ -103,12 +103,11 @@ int main(){
     i_stack.push(54);
     i_stack.push(255);
     // Now, removing element from integer stack
-    cout << i_stack.pop() << " is removed from stack"
-         << endl;
+    cout << i_stack.pop() << " is removed from stack" << endl;
 	 
     Foo(i_stack);
- 
     // Print and display the top element in integer stack
     cout << "Top element is " << i_stack.topElement() << endl;
+
     return 0;
 }
