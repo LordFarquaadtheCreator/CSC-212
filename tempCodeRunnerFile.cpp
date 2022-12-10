@@ -1,3 +1,2 @@
-cout << i << j << endl;
-    //     }
-    // }
+ int RV = rand();
+    RV = RV
