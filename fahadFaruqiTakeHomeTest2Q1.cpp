@@ -1,149 +1,113 @@
 #include <iostream>
-#include <string>
 using namespace std;
  
 // Taking size of stack as 5
 #define SIZE 5
  
+template<class T> 
 class Stack {
-public:
-    // Empty constructor
-    Stack();
- 
-    // Method 1
-    // using stack push() operation
-    void push(int k);
- 
-    // Method 2
-    // To remove top element from stack
-    int pop();
-
-    // Method 3
-    // To print top element in stack
-    int topElement();
- 
-    // Method 4
-    // To check whether stack is full
-    bool isFull();
- 
-    // Method 5
-    // To check whether stack is empty
-    bool isEmpty();
- 
-private:
     // Taking data member top
     int top;
- 
     // Initialising stack(array) of given size
-    int st[SIZE];
+    T stack[SIZE]; // size 5 declared globally
+
+    public:
+    Stack(){top = -1;}
+
+    void push(T k);
+
+    T pop();
+
+    int topElement();
+
+    bool isFull();
+
+    bool isEmpty();
 };
 
-// Method 6
-// To initialise top to
-// -1(default constructor)
-Stack::Stack() { top = -1; }
-
-// Method 7
-// To add element element k to stack
-void Stack::push(int k)
-{
+template <class T>
+int Stack<T>::topElement(){
+    // Initialising a variable to store top element
+    int top_element = stack[top];
  
+    // Returning the top element
+    return top_element;
+}
+
+template <class T>
+bool Stack<T>::isEmpty(){ // valid
+    // Till top in inside the stack
+    if (top == -1){return 1;}
+    else{return 0;}
+}
+
+template <class T>
+bool Stack<T>::isFull(){
+    // Till top in inside the stack
+    if (top == (SIZE - 1)){return 1;}
+    else{return 0;}
+}
+
+template <class T>
+void Stack<T>::push(T k){ //valid
     // Checking whether stack is completely filled
     if (isFull()) {
         // Display message when no elements can be pushed
         // into it
         cout << "Stack is full\n";
-    }
- 
+    }else{
     // Inserted element
     cout << "Inserted element " << k << endl;
- 
     // Incrementing the top by unity as element
     // is to be inserted
-    top = top + 1;
- 
+    top++;
     // Now, adding element to stack
-    st[top] = k;
+    stack[top] = k;
+    }
 }
 
-// Method 8
-// To check if the stack is empty
-bool Stack::isEmpty()
-{
-    if (top == -1)
-        return 1;
-    else
-        return 0;
-}
-// Utility methods
-// Method 9
-// To check if the stack is full or not
-bool Stack::isFull()
-{
-    // Till top in inside the stack
-    if (top == (SIZE - 1))
-        return 1;
-    else
- 
-        // As top can not exceeds th size
-        return 0;
-}
-
-// Method 10
-int Stack::pop()
-{
+template <class T>
+T Stack<T>::pop(){ // valid
     // Initialising a variable to store popped element
-    int popped_element = st[top];
- 
+    T popped_element = stack[top];
+
     // Decreasing the top as
     // element is getting out from the stack
     top--;
- 
+
     // Returning the element/s that is/are popped
     return popped_element;
 }
 
-// Method 11
-int Stack::topElement()
-{
-    // Initialising a variable to store top element
-    int top_element = st[top];
- 
-    // Returning the top element
-    return top_element;
-}
- 
-// Method 12
-// Main driver method
+void Foo(Stack<int> &X){
+    cout << "Enter Value" << endl;
+    int temp;
+    cin >> temp;
+    X.push(temp);
+}			
 
-   void Foo(Stack &X)
-   {
-        cout << "Enter Value" << endl;
-        int temp;
-        cin >> temp;
-        X.push(temp);
-}							//function prototype
 
-int main()
-{
+int main(){
+    string name = "Fahad Faruqi";
+    cout << "--------------------------------------------------------------------------\n";;
+    cout << "Name: " << name << endl;
+    cout << "FILE: " << __FILE__ << "\tDATE: " << __DATE__ << endl;
+    cout << "--------------------------------------------------------------------------\n";
+
     // Creating object of Stack class in main() method
-    Stack i_stack;
- 
+    Stack<int> i_stack; 
+
     // Adding elements to integer stack object
     // Custom integer entries
     i_stack.push(2);
     i_stack.push(54);
     i_stack.push(255);
-    
     // Now, removing element from integer stack
-    cout << i_stack.pop() << " is removed from stack"
-         << endl;
+    cout << i_stack.pop() << " is removed from stack" << endl;
 	 
     Foo(i_stack);
- 
     // Print and display the top element in integer stack
-    cout << "Top element is " << i_stack.topElement()
-         << endl;
- 
+    cout << "Top element is " << i_stack.topElement() << endl;
+
     return 0;
 }

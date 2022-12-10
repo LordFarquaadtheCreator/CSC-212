@@ -31,7 +31,7 @@ struct node{
     node* next; // now the lists be getting linked
 
     node(){ // default
-        modelName = "BMW";
+        modelName = "Ooops";
         price = 0;
         ownerName = "Bob";
     }
