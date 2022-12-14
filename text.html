@@ -1,0 +1,188 @@
+<script src="chatbotNew.py"></script>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <style type="text/css"></style>
+  <link rel="icon" type="image/png"
+    href="https://i0.wp.com/logotaglines.com/wp-content/uploads/2016/11/Bank-Of-America-Logo.png?fit=1600%2C810&ssl=1"
+    alt="Bank of America logo">
+
+  <div class="game-quiz-container">
+    <meta charset="UTF-8">
+    <title>BoA Stock Information Session</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+</head>
+
+<body style="padding:0; margin:0"></body>
+
+<body>
+  <div dir="ltr">
+    <div>
+      <center
+        style="table-layout:fixed;font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;background-color:rgb(243,243,243)">
+        <div
+          style="max-width:600%;font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;margin:0px auto">
+          <table align="center"
+            style="border-spacing:0px;font-family:sans-serif;color:rgb(51,51,51);margin:0px auto;width:600px;max-width:600px">
+            <tbody>
+              <tr>
+                <td style="padding:20px 0px 0px">
+                  <table
+                    style="border-spacing:0px;font-family:sans-serif;color:white;display:block;font-weight:300;background-image:none;background-color:rgb(28,175,246);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;text-align:left;width:1000px;background-position:111% 0%;background-repeat:repeat repeat">
+                    <tbody>
+                      <tr>
+
+                        <td style="padding:35px 0px">
+                          <table style="border-spacing:0px;font-family:sans-serif;color:dc1431;">
+                            <tbody>
+                              <tr>
+                                <td
+                                  style="padding:10px 15px 5px 40px;border-right-width:1px;border-right-style:solid;border-right-color:rgb(255,255,255)">
+                                  <a style="font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-decoration:none;border:0px none"
+                                    target="https://www.bankofamerica.com/"><img height="100" src="BOA.jpg" width="100"
+                                      style="border:0px none;margin:0px;padding:0px;vertical-align:middle"></a>
+                                </td>
+                                <td style="padding:5px 0px 5px 15px;font-size:20px;color:rgb(255,255,255)"><a
+                                    style="font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-decoration:none;border:0px none;color:rgb(255,255,255);padding-right:10px"
+                                    target="_blank">The Best Banking App</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="padding:30px;background-color:rgb(255,255,255);border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:10px;border-bottom-left-radius:10px">
+                  <table align="center"
+                    style="border-spacing:0px;font-family:sans-serif;color:rgb(51,51,51);border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:10px;border-bottom-left-radius:10px">
+                    <tbody>
+                      <tr>
+                        <td align="center" style="padding:0px">
+                          <div
+                            style="font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;margin:0px;color:rgb(96,95,96);font-size:20px;line-height:22px;text-align:center;font-weight:700;padding-bottom:20px">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+
+                        <td align="middle" style="padding:px">
+
+
+
+
+                          <body>
+                            <div id="container">
+                              <div id="start">Start Quiz!</div>
+                              <div id="quiz" style="display: none">
+                                <div id="question"></div>
+                                <div id="qImg"></div>
+                                <div id="choices">
+                                  <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                                  <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                                  <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                                  <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+                                </div>
+                                <div id="timer">
+                                  <div id="counter"></div>
+                                  <div id="btimeGauge"></div>
+                                  <div id="timeGauge"></div>
+                                </div>
+                                <div id="progress"></div>
+                              </div>
+                              <div id="scoreContainer" style="display: none"></div>
+                            </div>
+                            <script src="quiz.js"></script>
+
+
+                            <span>
+                              <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                              <label for="option-one" class="option" id="option-one-label"></label>
+                            </span>
+
+
+                            <span>
+                              <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                              <label for="option-two" class="option" id="option-two-label"></label>
+                            </span>
+
+
+                            <span>
+                              <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                              <label for="option-three" class="option" id="option-three-label"></label>
+                            </span>
+
+
+                            <span>
+                              <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                              <label for="option-four" class="option" id="option-four-label"></label>
+                            </span>
+
+
+
+
+                      </body>
+                    </td>
+                </tr>
+
+<td align="center" style="padding:0px">
+  <div style="margin:0px auto;max-width:450px">
+    <div
+      style="font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;margin:0px;color:rgb(155,155,155);font-size:14px;line-height:22px;text-align:center;font-weight:400;padding-top:30px">
+
+
+    </div>
+</td>
+</tr>
+<tr>
+  <td align="center" colspan="2"
+    style="padding:20px 0px 0px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(238,238,238)">
+    <a href=""
+      style="font-family:'Museo Sans Rounded','Museo Sans Rounded','Museo Sans','Museo Sans','Helvetica Neue',Helvetica,Arial,sans-serif;text-decoration:none;border:0px;width:280px;max-width:280px;font-size:14px;font-weight:bold;color:rgb(255,255,255);display:inline-block"
+      target="_blank">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+        style="border-spacing:0px;font-family:sans-serif;color:rgb(51,51,51)">
+        <tbody>
+          <tr>
+            <td style="padding:0px 0px 30px">
+              <table align="center" border="0" cellpadding="0" cellspacing="0"
+                style="border-spacing:0px;font-family:sans-serif;color:rgb(51,51,51);width:280px">
+                <tbody>
+                  <tr>
+                    <td align="center" bgcolor="#f5a323" id="chatbot-button"
+                      style="padding:12px 18px;border-top-left-radius:50px;border-top-right-radius:50px;border-bottom-right-radius:50px;border-bottom-left-radius:50px;color:rgb(255,255,255);font-weight:400">
+                      <a href="chatbotInterface.html">Open Chatbot</a>
+                    </td>
+                    <!--                       </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </a>
+  </td>
+</tr>
+<tr>
+  <td align="center" style="padding:0px">
+
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+</div>
+</div>
