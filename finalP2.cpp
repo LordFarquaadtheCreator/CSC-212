@@ -7,7 +7,7 @@ using namespace std;
 
 
 int main (){
-   string Name = "Fahad Faruqi";
+    string Name = "Fahad Faruqi";
     cout << "-----------------------------------------\n";
     cout << "Name: " << Name << endl;
     cout << "FILE: " << __FILE__ << "\tDATE: " << __DATE__ << endl;
